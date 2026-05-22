@@ -1,0 +1,192 @@
+/* ===== Базовые сбросы и переменные ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1a5276;
+    --secondary-color: #2e86c1;
+    --accent-color: #f39c12;
+    --bg-color: #f4f6f7;
+    --text-color: #2c3e50;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+    --radius: 12px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Header ===== */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.title {
+    flex: 1;
+    text-align: center;
+}
+
+.title h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.title p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+/* ===== Main ===== */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.content-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 50px 60px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    max-width: 600px;
+    width: 100%;
+    border: 2px solid transparent;
+}
+
+.content-box:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+}
+
+.content-box h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.lang-tag {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== Info Grid ===== */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    text-align: left;
+    margin: 25px 0;
+}
+
+.info-item {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 12px 15px;
+    border-radius: var(--radius);
+    border-left: 3px solid var(--secondary-color);
+}
+
+.info-item .label {
+    display: block;
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-item .value {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.info-item .value.highlight {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+/* ===== Refresh Hint ===== */
+.refresh-hint {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    opacity: 0.95;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .title h1 {
+        font-size: 1.5rem;
+    }
+
+    .content-box {
+        padding: 30px 20px;
+    }
+
+    .content-box h2 {
+        font-size: 1.8rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
