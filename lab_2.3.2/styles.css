@@ -1,0 +1,248 @@
+/* ===== Базовые сбросы и переменные ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1a5276;
+    --secondary-color: #2e86c1;
+    --accent-color: #f39c12;
+    --success-color: #27ae60;
+    --error-color: #e74c3c;
+    --bg-color: #f4f6f7;
+    --text-color: #2c3e50;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Header ===== */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.title {
+    flex: 1;
+    text-align: center;
+}
+
+.title h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.title p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+/* ===== Main ===== */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.calc-container {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    max-width: 500px;
+    width: 100%;
+}
+
+/* ===== Display ===== */
+.display-wrapper {
+    margin-bottom: 20px;
+}
+
+#display {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.8rem;
+    text-align: right;
+    border: 2px solid #d5dbdb;
+    border-radius: var(--radius);
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Consolas', monospace;
+}
+
+.result-line {
+    margin-top: 10px;
+    padding: 12px 20px;
+    background: #e8f8f5;
+    border-radius: var(--radius);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--success-color);
+    text-align: right;
+    font-family: 'Consolas', monospace;
+}
+
+.result-line.error {
+    background: #fadbd8;
+    color: var(--error-color);
+}
+
+/* ===== Buttons Grid ===== */
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.buttons-grid button {
+    padding: 18px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+
+.buttons-grid button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.buttons-grid button:active {
+    transform: translateY(0);
+}
+
+.btn-num {
+    background: #ecf0f1;
+    color: var(--text-color);
+}
+
+.btn-num:hover {
+    background: #d5dbdb;
+}
+
+.btn-op {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-op:hover {
+    background: var(--primary-color);
+}
+
+.btn-func {
+    background: #8e44ad;
+    color: var(--white);
+    font-size: 1rem !important;
+}
+
+.btn-func:hover {
+    background: #7d3c98;
+}
+
+.btn-clear {
+    background: var(--error-color);
+    color: var(--white);
+}
+
+.btn-clear:hover {
+    background: #c0392b;
+}
+
+.btn-equals {
+    background: var(--success-color);
+    color: var(--white);
+}
+
+.btn-equals:hover {
+    background: #219a52;
+}
+
+/* ===== Info ===== */
+.info {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+.info p {
+    margin: 5px 0;
+}
+
+#currentExpr {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-family: monospace;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    opacity: 0.95;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 600px) {
+    .calc-container {
+        padding: 15px;
+    }
+
+    .buttons-grid button {
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    #display {
+        font-size: 1.4rem;
+        padding: 15px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .title h1 {
+        font-size: 1.5rem;
+    }
+}
