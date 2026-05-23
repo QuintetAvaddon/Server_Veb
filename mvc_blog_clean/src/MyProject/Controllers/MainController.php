@@ -23,7 +23,10 @@ class MainController
 
     public function sayHello(string $name): void
     {
-        $this->view->renderHtml('hello.php', ['name' => $name]);
+        $this->view->renderHtml('hello.php', [
+            'name' => $name,
+            'title' => 'Page of greeting'
+        ]);
     }
 
     public function sayBye(string $name): void
@@ -32,8 +35,7 @@ class MainController
     }
 
     public function aboutMe(): void
-{
-    $this->view->renderHtml('about-me.php');
+    {
+        $this->view->renderHtml('about-me.php');
+    }
 }
-}
-

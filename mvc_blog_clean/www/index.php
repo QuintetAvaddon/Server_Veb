@@ -8,14 +8,11 @@ $uri = trim($uri, '/');
 $parts = explode('/', $uri);
 
 $action = $parts[0] ?? '';
-$name = $parts[1] ?? 'Guest';
+$name = isset($parts[1]) ? urldecode($parts[1]) : 'Guest';
 
 $controller = new MainController();
 
 switch ($action) {
-    case 'about-me':
-    $controller->aboutMe();
-    break;
     case '':
         $controller->main();
         break;
@@ -24,6 +21,9 @@ switch ($action) {
         break;
     case 'bye':
         $controller->sayBye($name);
+        break;
+    case 'about-me':
+        $controller->aboutMe();
         break;
     default:
         http_response_code(404);
